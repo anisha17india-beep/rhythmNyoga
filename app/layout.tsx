@@ -17,27 +17,32 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: 'Rhythm N Yoga Wellness - Heal Naturally',
-  description: 'Experience holistic healing through yoga therapy, Ho\'opono\'pono, flower remedies, and dance therapy. Transform your mind, body, and spirit.',
-  generator: 'v0.app',
+  title: "Rhythm N Yoga Wellness - Heal Naturally",
+  description:
+    "Experience holistic healing through yoga therapy, Ho'opono'pono, flower remedies, and dance therapy. Transform your mind, body, and spirit.",
+  generator: "v0.app",
+  verification: {
+    google: "FWTtPh_YIyDLvA7pUsCmCYAzxTgXXMlwdc7DbpC42jU", // 👈 paste your actual code here
+  },
+
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: "/icon.svg",
+        type: "image/svg+xml",
       },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
