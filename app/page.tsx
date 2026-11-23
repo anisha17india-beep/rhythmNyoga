@@ -389,7 +389,7 @@ export default function RhythmYogaWellness() {
   const fetchData = async () => {
     try {
       const [heroRes, servicesRes, workshopsRes, galleryRes, reviewsRes] = await Promise.all([
-        supabase.from('hero_section').select('*').single(),
+        supabase.from('hero_section').select('*').order('updated_at',{ascending: false}).limit(1).maybeSingle(),
         supabase.from('services').select('*').order('display_order'),
         supabase.from('workshops').select('*').order('display_order'),
         supabase.from('gallery').select('*').order('display_order'),

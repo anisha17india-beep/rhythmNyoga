@@ -174,13 +174,19 @@ export default function AdminPage() {
   const fetchData = async () => {
     setLoading(true)
     try {
-      const [heroRes, servicesRes, workshopsRes, galleryRes, reviewsRes] = await Promise.all([
-        supabase.from('hero_section').select('*').single(),
-        supabase.from('services').select('*').order('display_order'),
-        supabase.from('workshops').select('*').order('display_order'),
-        supabase.from('gallery').select('*').order('display_order'),
-        supabase.from('reviews').select('*').order('display_order')
-      ])
+      const [heroRes, servicesRes, workshopsRes, galleryRes, reviewsRes] =
+        await Promise.all([
+          supabase
+            .from("hero_section")
+            .select("*")
+            .order("updated_at", { ascending: false })
+            .limit(1)
+            .maybeSingle(),
+          supabase.from("services").select("*").order("display_order"),
+          supabase.from("workshops").select("*").order("display_order"),
+          supabase.from("gallery").select("*").order("display_order"),
+          supabase.from("reviews").select("*").order("display_order"),
+        ]);
 
       if (heroRes.data) setHeroSection(heroRes.data)
       if (servicesRes.data) setServices(servicesRes.data)
